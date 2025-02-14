@@ -1,0 +1,10 @@
+port: 5000
+region: us-central1
+
+dev:
+  project: プロジェクトID
+  image: us-central1-docker.pkg.dev/プロジェクトID/パイプライン名/image
+
+prod:
+  project: プロジェクトID
+  image: us-central1-docker.pkg.dev/プロジェクトID/パイプライン名/image
