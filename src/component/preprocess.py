@@ -1,8 +1,11 @@
+import os
 import argparse
 
 
 def preprocess(project_id: str, data: str, run_id: str, output_path: str):
     """データを前処理するコンポーネント"""
+
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w") as f:
         f.write("preprocess\n")
         f.write(f"project_id: {project_id}\n")

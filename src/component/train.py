@@ -1,3 +1,4 @@
+import os
 import argparse
 
 
@@ -6,6 +7,7 @@ def train(project_id, input_path, run_id, output_path):
     with open(input_path, "r") as f:
         data = f.read()
 
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w") as f:
         f.write(f"Trained model with {data}")
 
