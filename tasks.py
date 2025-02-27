@@ -80,7 +80,7 @@ def build_pipeline(c, prod: bool = False):
     project = c.config.prod.project if prod else c.config.dev.project
     aiplatform.init(project=project, location=c.config.region)
     image = c.config.prod.image if prod else c.config.dev.image
-    from src.pipeline import build_pipeline
+    from pipeline import build_pipeline
 
     build_pipeline(image)
 
@@ -94,6 +94,6 @@ def run_pipeline(c, prod: bool = False):
         display_name="vertex-ai-pipeline",
         template_path="vertex_ai_pipeline.json",
         pipeline_root=f"gs://{project}-vertex-pipelines",
-        parameter_values={"data": "sample input data"},
+        parameter_values={"project_id": project, "data": "sample input data"},
     )
     job.submit(service_account=f"vertex-pipelines-sa@{project}.iam.gserviceaccount.com")

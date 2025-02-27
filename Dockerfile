@@ -14,4 +14,6 @@ RUN pip install uv
 COPY uv.lock pyproject.toml ./
 RUN uv sync
 
+COPY src src
+
 CMD ["uv", "--help"]

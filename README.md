@@ -31,10 +31,10 @@ uv run inv docker-push
 ### パイプライン
 パイプラインをコンパイル
 ```bash
-uv run python vertex_ai_kfp.py
+uv run inv build-pipeline
 ```
 
 パイプラインの実行
 ```bash
-uv run python run.py
+uv run inv run-pipeline
 ```
