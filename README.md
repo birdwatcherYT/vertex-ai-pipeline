@@ -38,3 +38,13 @@ uv run inv build-pipeline
 ```bash
 uv run inv run-pipeline
 ```
+
+パイプライン実行関数のデプロイ(コンパイル後行う)
+```bash
+uv run inv deploy-pipeline
+```
+
+デプロイしたパイプラインの実行
+```bash
+uv run inv run-pipeline-via-cloud-function
+```
