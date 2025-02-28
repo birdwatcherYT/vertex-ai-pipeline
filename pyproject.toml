@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11.9"
 dependencies = [
+    "flask>=3.1.0",
     "google-cloud-aiplatform>=1.80.0",
     "invoke>=2.2.0",
     "kfp>=2.11.0",

@@ -10,7 +10,7 @@ from kfp.dsl import (
 )
 
 
-def build_pipeline(image: str):
+def build_pipeline(image: str, output_path: str):
     @container_component
     def preprocess_component(
         project_id: str,
@@ -78,5 +78,5 @@ def build_pipeline(image: str):
 
     compiler.Compiler().compile(
         pipeline_func=vertex_ai_pipeline,
-        package_path="vertex_ai_pipeline.json",
+        package_path=output_path,
     )

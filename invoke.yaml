@@ -1,5 +1,6 @@
 port: 5000
 region: us-central1
+pipeline_json: cloud_function/vertex_ai_pipeline.json
 
 dev:
   project: プロジェクトID
