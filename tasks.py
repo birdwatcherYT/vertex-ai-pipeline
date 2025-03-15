@@ -62,6 +62,7 @@ def docker_push(c, prod: bool = False):
 
 @invoke.task
 def cloud_build(c, prod: bool = False):
+    """Cloud Buildを行う"""
     project = c.config.prod.project if prod else c.config.dev.project
     image = c.config.prod.image if prod else c.config.dev.image
     dt_now = datetime.datetime.now()
@@ -77,6 +78,7 @@ def cloud_build(c, prod: bool = False):
 
 @invoke.task
 def build_pipeline(c, prod: bool = False):
+    """パイプラインをbuildしてjsonファイルを吐き出す"""
     project = c.config.prod.project if prod else c.config.dev.project
     aiplatform.init(project=project, location=c.config.region)
     image = c.config.prod.image if prod else c.config.dev.image
@@ -87,6 +89,7 @@ def build_pipeline(c, prod: bool = False):
 
 @invoke.task
 def run_pipeline(c, prod: bool = False):
+    """buildされたjsonファイルに従ったパイプラインを実行する"""
     project = c.config.prod.project if prod else c.config.dev.project
 
     # job = aiplatform.PipelineJob(
@@ -114,6 +117,7 @@ def run_pipeline(c, prod: bool = False):
 
 @invoke.task
 def run_pipeline_via_cloud_function(c, prod: bool = False):
+    """cloud functionにデプロイした関数を使ってパイプラインを実行する"""
     project = c.config.prod.project if prod else c.config.dev.project
 
     params = {"data": "sample input data"}
@@ -144,7 +148,7 @@ def deploy_pipeline(c, prod: bool = False):
         --project {project} \
         --runtime python311 \
         --trigger-http \
-        --entry-point=handle_http \
+        --entry-point=main \
         --source=./cloud_function/ \
         --service-account={run_sa} \
         --build-service-account={build_sa} \

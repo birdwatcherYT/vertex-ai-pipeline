@@ -11,8 +11,8 @@ brew install hashicorp/tap/terraform
 ```bash
 cd terraform/
 terraform init
-terraform plan -var-file=terraform-dev.tfvars
-terraform apply -var-file=terraform-dev.tfvars
+terraform plan -var-file=dev.tfvars
+terraform apply -var-file=dev.tfvars
 ```
 
 

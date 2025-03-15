@@ -9,7 +9,7 @@ REGION = os.getenv("REGION")
 
 
 # Cloud Functionsで呼ぶ
-def handle_http(request: Request):
+def main(request: Request):
     params = request.get_json() if request.is_json else {}
 
     job = aiplatform.PipelineJob(
@@ -42,4 +42,4 @@ if __name__ == "__main__":
         content_length=len(body),
         data=body,
     )
-    handle_http(req)
+    main(req)
