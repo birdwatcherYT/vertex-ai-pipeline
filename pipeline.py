@@ -10,7 +10,7 @@ from kfp.dsl import (
 )
 
 
-def build_pipeline(image: str, output_path: str):
+def compile_pipeline(image: str, output_path: str):
     @container_component
     def preprocess_component(
         project_id: str,

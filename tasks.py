@@ -82,9 +82,9 @@ def build_pipeline(c, prod: bool = False):
     project = c.config.prod.project if prod else c.config.dev.project
     aiplatform.init(project=project, location=c.config.region)
     image = c.config.prod.image if prod else c.config.dev.image
-    from pipeline import build_pipeline
+    from pipeline import compile_pipeline
 
-    build_pipeline(image, c.config.pipeline_json)
+    compile_pipeline(image, c.config.pipeline_json)
 
 
 @invoke.task
